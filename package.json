@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/manaloerico/chatServer/issues"
   },
-  "homepage": "https://github.com/manaloerico/chatServer#readme"
+  "homepage": "https://github.com/manaloerico/chatServer#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
 }
