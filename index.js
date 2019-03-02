@@ -8,26 +8,19 @@ var nameList =
 
 app.get('/', function (req, res) {
   res.send('<h1>Hello world</h1>');
+  console.log('access');
+});
+http.listen(3000, function () {
+  console.log('listening on *:3000');
 });
 
 var UserList = [];
 app.get('/user/list', function (req, res) {
-  // var UserList = [];
-  // for (var a = 0; a < 10; a++) {
-  //   UserList.push({
-  //     img: '/src/assets/images/user3-128x128.jpg',
-  //     name: nameList[a],
-  //     status: true,
-  //     socket
-
-  //   });
-  // } 
+  
   res.send(JSON.stringify(UserList));
 });
 
-http.listen(3000, function () {
-  console.log('listening on *:3000');
-});
+
 custom_id = 0;
 io.engine.generateId = (req) => {
   return "custom:id:" + custom_id++; // custom id must be unique
@@ -106,11 +99,5 @@ io.on('connection', function (socket) {
     io.emit('userlist', UserList);
   });
 
-
-
-  // socket.on('userlist',function(l){
-  //   console.log(l);
-  //   socket.emit('newuserlist', socket.client.id,l);
-  // })
-
+ 
 });
